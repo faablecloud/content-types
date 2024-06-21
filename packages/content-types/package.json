@@ -1,0 +1,17 @@
+{
+  "name": "@faable/content-types",
+  "description": "Generated TypeScript definitions for Faable Content",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/faablecloud/content-types.git",
+    "directory": "packages/content-types"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.0.0-development",
+  "main": "",
+  "types": "types.d.ts",
+  "author": "Marc Pomar",
+  "license": "MIT"
+}

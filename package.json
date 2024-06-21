@@ -1,0 +1,34 @@
+{
+  "name": "@faablecloud/content-types",
+  "version": "0.0.0-development",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "openapi-typescript": "^6.6.1"
+  },
+  "scripts": {
+    "generate": "openapi-typescript https://api-content.faable.link/docs/json -o packages/content-types/types.d.ts",
+    "release": "semantic-release"
+  },
+  "release": {
+    "branches": [
+      "main",
+      "beta"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "packages/content-types"
+        }
+      ]
+    ]
+  },
+  "devDependencies": {
+    "semantic-release": "^22.0.12"
+  }
+}

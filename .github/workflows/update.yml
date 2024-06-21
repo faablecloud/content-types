@@ -1,0 +1,26 @@
+name: Update
+on:
+  repository_dispatch:
+    types:
+      - faablecloud/auth release
+jobs:
+  release:
+    name: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          node-version: lts/*
+      - run: yarn install --frozen-lockfile
+      - run: yarn run generate
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: "feat: faable OpenAPI spec changed"
+          add: "*.d.ts"
+      - run: yarn run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
