@@ -90,6 +90,8 @@ export interface components {
       modeldata: {
         [key: string]: unknown;
       };
+      /** @description An image to use in og:image metadata */
+      social_cover?: string;
     };
     /** @description Content paginated response */
     ContentPage: {
